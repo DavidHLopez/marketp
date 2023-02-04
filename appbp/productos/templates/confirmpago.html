@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art. 03 -iwv</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin|Josefin+Sans:400,700'>
+  
+  <link rel="stylesheet" type="text/css" href="static/css/style.css"> 
+</head>
+
+<body>
+ <!-- header -->
+<div class="page">
+  <div class="page-title">
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+    <p class="s1" style="text-indent: 0pt;text-align: center;">La Galeria, tienda virtual</p>
+    <p class="s1" style="text-indent: 0pt;text-align: center;">Confirma tu pedido</p>
+  </div>
+  <ul class="page-nav">
+    <a href="/" class="page-nav-link" >Inicio La Galeria</a> 
+    
+    <li><a href="/s01a02" class="page-nav-link2" >Quiosco siguiente </a>  </li>
+
+  </ul>
+  
+  <div class="ie-separator" role="presentation"></div>
+  
+  <div class="article-meta">
+    <div class="article-meta-author-portrait">
+      <img src="./static/img/pagologo.jpg" alt="Article Author David profile picture" />
+    </div>
+    <div class="article-meta-author">Escoge tu medio de pago y accede a la pasarela de pago que prefieras.</div>
+    <div class="article-meta-date" id="current_date"></p>
+        <script>
+            document.getElementById("current_date").innerHTML = Date();
+            </script></div>
+  </div>
+ <!-- body article --> 
+ 
+<section>
+  <div class="column col-md-4 mb-3">
+    <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Pedido </h4>
+            <p class="card-text">Confirma tu pedido</p>
+          
+          
+          <script src="./static/js/pagoscript.js"></script>
+          <aside class="col-sm-4">
+            <h2>Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+        </aside>
+            <form method="get" action="/confirm.carrito">
+              <button class="btn btn-info"> Pagar aquí. </button>
+            </form>   
+         </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="column col-md-4 mb-3">
+  <div class="card">
+      <img class="img-fluid" alt="100%x280" src="static/img/pago.png">
+      <div class="card-body">
+          <h4 class="card-title" class="nav-link" href="/s01a01">BTC wallet.</h4>
+          <p class="card-text">3MRK9YxwDBGqE67
+            MKGGDHoN
+            LuHCeRTSDFd</p>
+          <p class="card-text">Puedes enviar tu pago con Btc en esta wallet</p>
+             
+       </div>
+  </div>
+</div>
+
+
+ <!--*****************************-->
+     <div class="article-quote">"La pasarela de pagos de LA Galeria te garantiza seguridad y confianza .."</div>
+      <div class="article-footer">
+        <div>(c) 2022, Derechos de autor y propiedad intelectual</div>
+      </div>
+    </div>
+  
+  <div class="footer">
+      <div class="footer-about">
+        <h5>Sobre nosotros</h5>
+        <p>La galeria , es una plataforma para la venta de productos orgánicos y artesanales de origen colombiano.</p>
+      </div>
+       <div class="footer-contact">
+        <h5>Contacto</h5>
+        <p>iwdelvalle@gmail.com</p>
+         <p>España</p>
+        <p>Toledo, España</p>
+         </div>
+        <div class="footer-logos">
+         <img src="static/img/logo.png" />
+  
+ </div>
+ </div>
+ <!-- partial -->
+
+</body>
+</html>

@@ -10,7 +10,7 @@ client= MongoClient(port=27017)
 
 #db name
 
-db = client.contact_data
+db = client.contact_datamp
 
 
 
@@ -19,7 +19,7 @@ db = client.contact_data
 def home():
     return render_template('landingp_index.html')
 
-@landingp.route('/s01a01', methods=['GET'])
+@landingp.route('/cafe', methods=['GET'])
 def reg1():
     return render_template('s01a01.html')
 
@@ -40,6 +40,16 @@ def reg5():
     return render_template('s01a05.html')
 
 
+@landingp.route( '/contactr', methods=['POST'])
+
+def data(): 
+    data = {}
+    if request.method == "POST": 
+        data['Name'] = request.form ['name']
+        data['Email']= request.form ['email']
+        data['Message'] = request.form ['message']
+        db.contactData.insert_one(data) 
+        return render_template('landingp_index.html')
 
 
 

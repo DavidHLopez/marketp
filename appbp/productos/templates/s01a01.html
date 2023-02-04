@@ -36,24 +36,105 @@
  <!-- body article --> 
  
 
+
+ <section>
+<div class="column col-md-4 mb-3">
+  <div class="card">
+      <img class="img-fluid" alt="100%x280" src="static/img/cafe.jpg">
+      <div class="card-body">
+          <h4 class="card-title" class="nav-link" href="/s01a01">Café del valle.</h4>
+          <p class="card-text">café de la región del valle del cauca, procesado en origen 20$.</p>
+          
+          <button onclick="addProductToStorage1()">Add Product</button>
+
+          <script>
+            function addProductToStorage1() {
+              const product = {
+                name: 'Cafe1',
+                price: 25 , 
+                weight: 500
+                
+              };
+
+              localStorage.setItem('product', JSON.stringify(product));
+            }
+          </script>  
+       </div>
+  </div>
+</div>
+
+<div class="column col-md-4 mb-3">
+  <div class="card">
+      <img class="img-fluid" alt="100%x280" src="static/img/cafe.jpg">
+      <div class="card-body">
+          <h4 class="card-title" class="nav-link" href="/s01a01">Café del valle.</h4>
+          <p class="card-text">café de la región del valle del cauca, procesado en origen 15$.</p>
+          
+           
+            <button onclick="addProductToStorage()">Add Product</button>
+
+            <script>
+              function addProductToStorage() {
+                const product2 = {
+                  name: 'Cafe2',
+                  price: 12.5 , 
+                  weight: 250
+                  
+                };
+
+                localStorage.setItem('product2', JSON.stringify(product2));
+              }
+            </script>
+  
+       </div>
+  </div>
+</div>
+
+</section>
+
 <section>
   <div class="column col-md-4 mb-3">
     <div class="card">
-        <img class="img-fluid" alt="100%x280" src="static/img/cafe.jpg">
-        <div class="card-body">
-            <h4 class="card-title" class="nav-link" href="/s01a01">Café del valle.</h4>
-            <p class="card-text">café de la región del valle del cauca, procesado en origen.</p>
-            <form method="get" action="/s01a01">
-              <button class="btn btn-info"> añadir al carrito. </button>
+          <div class="card-body">
+            <h4 class="card-title">Pasarela de pagos </h4>
+            <p class="card-text">Confirma tu pedido</p>
+          
+          
+          <aside class="col-sm-4">
+            <h2>Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            <button onclick="sumProducts()">Sum Products</button>
+
+           
+        </aside>
+        <button onclick="deleteLocalStorageItem()">Vaciar</button>
+        <script> 
+          function deleteLocalStorageItem(product) {
+            localStorage.removeItem(product);
+          }
+          
+          deleteLocalStorageItem("product");
+          </script>
+
+            <form method="post" action="/confirm.pago">
+              <button onclick="retrieveLocalStoragePagos()">Pagar aquí</button>
+
+              <script>
+              function retrieveLocalStoragePagos(){
+                  let pagos = localStorage.getItem("product");
+                  alert("Retrieved data is: " + pagos);
+              }
+              </script>
             </form>   
          </div>
 
     </div>
-</div>
+  </div>
 </section>
- 
-
-
 
  <!--*****************************-->
      <div class="article-quote">"El café del valle es un producto orgánico de origen artesanal, con trazabilidad garantizada por estándares de calidad ISO"</div>
