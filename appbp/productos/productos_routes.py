@@ -1,12 +1,13 @@
 
 from flask import request, render_template , jsonify
-from pymongo import MongoClient
+from flask_pymongo import pymongo
+
 from . import productos
 
 
 #mongoclient 
-
-client= MongoClient(port=27017)
+CONNECTION_STRING = "mongodb+srv://iwvuser:iwvuser1@pruebas.nabbcu0.mongodb.net/?retryWrites=true&w=majority"
+client= pymongo.MongoClient( CONNECTION_STRING)
 
 
 #db name
@@ -23,11 +24,14 @@ def data():
 @productos.route('/confirm.pago', methods=['POST'])
 
 def pagos(): 
-        pagos = {}
-        if request.method == "POST": 
-            pagos = request.get_json()['pagos']
-            
-            db.pagosdata.insert_one(pagos) 
-            return render_template('confirmpago.html')
+    data = {}
+    if request.method == "POST": 
+        data['Name'] = request.form ['name']
+        data['Email']= request.form ['email']
+        data['Message'] = request.form ['message']
+        
+        db.pagosData.insert_one(data) 
+        
+        return render_template('confirmpago.html')
 
     

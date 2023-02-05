@@ -112,24 +112,33 @@
            
         </aside>
         <button onclick="deleteLocalStorageItem()">Vaciar</button>
-        <script> 
-          function deleteLocalStorageItem(product) {
-            localStorage.removeItem(product);
-          }
-          
-          deleteLocalStorageItem("product");
-          </script>
-
-            <form method="post" action="/confirm.pago">
-              <button onclick="retrieveLocalStoragePagos()">Pagar aquí</button>
-
-              <script>
-              function retrieveLocalStoragePagos(){
-                  let pagos = localStorage.getItem("product");
-                  alert("Retrieved data is: " + pagos);
-              }
-              </script>
-            </form>   
+      </aside>
+      <form method="post" action="/confirm.pago">
+        <button class="btn btn-info"> Pagar aquí. </button>
+        <p>
+          Deja aquí los datos de tu pedido.
+        </p>
+        <form id="survey-form" method="POST" action="/confirm.pago">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <i class="fas fa-user input-group-text"></i>
+            </div>
+            <input type="text" name="name" id="name" class="input-field" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <i class="fas fa-envelope input-group-text"></i>
+            </div>
+            <input type="email" name="email" id="email" class="input-field" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <i class="fas fa-pencil-alt input-group-text"></i>
+            </div>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send</button>
+        </form>  
          </div>
 
     </div>
